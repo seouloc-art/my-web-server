@@ -353,3 +353,9 @@ docker ps
 ```text
 http://localhost:5000
 ```
+
+### 브라우저 접속 확인
+
+브라우저에서 `http://localhost:5000`으로 접속하여 컨테이너의 Flask 웹 서버가 정상 실행되는 것을 확인했다.
+
+![localhost 접속 성공 화면](images/browser-localhost.png)
