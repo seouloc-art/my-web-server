@@ -171,3 +171,48 @@ chmod -x app.py
 ls -l app.py
 -rw-r--r-- app.py
 
+## Docker 설치 및 기본 점검
+
+### Docker 버전 확인
+
+Docker가 설치되어 있는지 확인하기 위해 아래 명령어를 실행했다.
+
+```powershell
+docker --version
+```
+
+실행 결과:
+
+```text
+Docker version 29.9.2, build a82e528
+```
+
+확인 결과 Docker 버전이 출력되었으므로 Docker 설치가 완료된 것을 확인했다.
+
+### Docker 동작 상태 확인
+
+Docker가 실제로 정상 작동하는지 확인하기 위해 아래 명령어를 실행했다.
+
+```powershell
+docker info
+```
+
+주요 실행 결과:
+
+```text
+Client:
+ Version: 29.9.2
+ Context: desktop-linux
+
+Server:
+ Server Version: 29.9.2
+ Containers: 2
+ Running: 0
+ Stopped: 2
+ Images: 1
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+```
+
+확인 결과 Docker Client와 Server 정보가 정상적으로 출력되었으므로 Docker가 정상 작동 중임을 확인했다.
