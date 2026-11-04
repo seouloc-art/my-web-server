@@ -259,3 +259,33 @@ This message shows that your installation appears to be working correctly.
 ```
 
 이를 통해 Docker가 이미지를 다운로드하고 컨테이너를 정상 실행할 수 있음을 확인했다.
+
+### Docker 컨테이너 목록 확인
+
+현재 실행 중인 컨테이너를 확인하기 위해 아래 명령어를 실행했다.
+
+```powershell
+docker ps
+```
+
+실행 결과 현재 실행 중인 컨테이너는 없었다.
+
+전체 컨테이너 목록을 확인하기 위해 아래 명령어를 실행했다.
+
+```powershell
+docker ps -a
+```
+
+실행 결과:
+
+```text
+CONTAINER ID   IMAGE          COMMAND           STATUS
+9e79e2e44203   hello-world    "/hello"          Exited (0)
+257de8514f10   my-web-server  "python app.py"   Exited (0)
+b811beb86a2    my-web-server  "python app.py"   Exited (0)
+```
+
+`hello-world` 컨테이너는 실행 후 바로 종료되기 때문에 `docker ps`에는 보이지 않고, `docker ps -a`에서 확인할 수 있었다.
+
+`Exited (0)` 상태를 통해 컨테이너가 오류 없이 정상 종료되었음을 확인했다.
+
