@@ -289,3 +289,28 @@ b811beb86a2    my-web-server  "python app.py"   Exited (0)
 
 `Exited (0)` 상태를 통해 컨테이너가 오류 없이 정상 종료되었음을 확인했다.
 
+### my-web-server 컨테이너 실행
+
+직접 만든 Docker 이미지인 `my-web-server`를 실행하기 위해 아래 명령어를 사용했다.
+
+```powershell
+docker run -p 5000:5000 my-web-server
+```
+
+실행 결과 Flask 서버가 정상적으로 시작되었다.
+
+```text
+* Serving Flask app 'app'
+* Debug mode: off
+* Running on all addresses (0.0.0.0)
+* Running on http://127.0.0.1:5000
+* Running on http://172.17.0.2:5000
+```
+
+브라우저에서 아래 주소로 접속하여 웹 서버 실행 여부를 확인할 수 있다.
+
+```text
+http://localhost:5000
+```
+
+출력된 WARNING 메시지는 Flask 개발 서버에 대한 안내이며, 실습 환경에서는 오류가 아니다.
