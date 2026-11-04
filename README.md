@@ -216,3 +216,46 @@ Server:
 ```
 
 확인 결과 Docker Client와 Server 정보가 정상적으로 출력되었으므로 Docker가 정상 작동 중임을 확인했다.
+
+### Docker 이미지 목록 확인
+
+현재 로컬에 저장된 Docker 이미지 목록을 확인하기 위해 아래 명령어를 실행했다.
+
+```powershell
+docker images
+```
+
+실행 결과:
+
+```text
+IMAGE                  ID            DISK USAGE   CONTENT SIZE
+my-web-server:latest   fab89a85a8e8  203MB        49.7MB
+```
+
+이를 통해 로컬 환경에 `my-web-server:latest` Docker 이미지가 저장되어 있음을 확인했다.
+
+---
+
+### hello-world 컨테이너 실행
+
+Docker가 컨테이너를 정상적으로 실행할 수 있는지 확인하기 위해 아래 명령어를 실행했다.
+
+```powershell
+docker run hello-world
+```
+
+처음에는 로컬에 `hello-world:latest` 이미지가 없어 Docker Hub에서 이미지를 내려받았다.
+
+```text
+Unable to find image 'hello-world:latest' locally
+Status: Downloaded newer image for hello-world:latest
+```
+
+이후 다음 메시지가 출력되었다.
+
+```text
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```
+
+이를 통해 Docker가 이미지를 다운로드하고 컨테이너를 정상 실행할 수 있음을 확인했다.
