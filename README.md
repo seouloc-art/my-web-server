@@ -314,3 +314,42 @@ http://localhost:5000
 ```
 
 출력된 WARNING 메시지는 Flask 개발 서버에 대한 안내이며, 실습 환경에서는 오류가 아니다.
+
+### Docker 컨테이너 백그라운드 실행
+
+기존 컨테이너가 5000번 포트를 사용 중이어서 포트 충돌이 발생했다.
+
+```text
+Bind for 0.0.0.0:5000 failed: port is already allocated
+```
+
+`docker ps -a`로 컨테이너 상태를 확인한 뒤, 실행 실패로 남아 있던 컨테이너를 삭제했다.
+
+```powershell
+docker ps -a
+docker rm my-web-container
+```
+
+이후 컨테이너를 백그라운드 모드로 다시 실행했다.
+
+```powershell
+docker run -d -p 5000:5000 --name my-web-container my-web-server
+```
+
+실행 상태를 확인했다.
+
+```powershell
+docker ps
+```
+
+결과적으로 `my-web-container`가 `Up` 상태이며, 포트가 정상 연결된 것을 확인했다.
+
+```text
+0.0.0.0:5000->5000/tcp
+```
+
+브라우저에서 아래 주소로 접속할 수 있다.
+
+```text
+http://localhost:5000
+```
