@@ -152,3 +152,22 @@ PS C:\Users\사용자명\Desktop\my-web-server\terminal-practice> rm renamed-hel
 
 ## 터미널 기본 조작 실습 로그
 ...
+
+---
+
+## 파일/디렉토리 권한 확인 및 chmod 실습
+
+Git Bash에서 `ls -l` 명령어를 사용하여 파일과 디렉토리의 권한을 확인했다.
+
+```bash
+pwd
+ls -l
+-rw-r--r-- app.py
+drwxr-xr-x terminal-practice/
+chmod +x app.py
+ls -l app.py
+-rw-r--r-- app.py
+chmod -x app.py
+ls -l app.py
+-rw-r--r-- app.py
+
