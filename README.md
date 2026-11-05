@@ -359,3 +359,6 @@ http://localhost:5000
 브라우저에서 `http://localhost:5000`으로 접속하여 컨테이너의 Flask 웹 서버가 정상 실행되는 것을 확인했다.
 
 ![localhost 접속 성공 화면](images/browser-localhost.png)
+
+
+이를 통해 Docker 컨테이너 내부의 Flask 서버가 호스트 PC의 5000번 포트와 정상적으로 연결되었음을 확인했다.
