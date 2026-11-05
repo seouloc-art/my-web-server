@@ -18,10 +18,6 @@ docker run -p 5000:5000 my-web-server
 # 브라우저에서 확인
 http://localhost:5000
 
-## 바인드 마운트 실습
-# 파일 수정이 즉시 컨테이너에 반영됨
-docker run -p 5000:5000 -v $(pwd):/app my-web-server
-
 ## Docker 볼륨 실습
 # 볼륨 생성
 docker volume create my-volume
@@ -33,6 +29,13 @@ docker run -p 5000:5000 -v my-volume:/app/data my-web-server
 docker rm [컨테이너ID]
 docker volume inspect my-volume
 
+## Docker 볼륨 영속성 확인
+
+Docker 볼륨을 생성했다.
+
+```bash
+
+```
 ## 미션 완료 체크리스트
 - [x] Flask 웹서버 작성 (app.py)
 - [x] Dockerfile 작성
@@ -148,12 +151,6 @@ PS C:\Users\사용자명\Desktop\my-web-server\terminal-practice> rm renamed-hel
 내 컴퓨터의 파일을 수정하면 Docker 컨테이너 안의 웹페이지에도
 바로 반영되는 것을 확인했다.
 
----
-
-## 터미널 기본 조작 실습 로그
-...
-
----
 
 ## 파일/디렉토리 권한 확인 및 chmod 실습
 
@@ -162,16 +159,16 @@ Git Bash에서 `ls -l` 명령어를 사용하여 파일과 디렉토리의 권�
 ```bash
 pwd
 ls -l
--rw-r--r-- app.py
-drwxr-xr-x terminal-practice/
+
 chmod +x app.py
 ls -l app.py
--rw-r--r-- app.py
+
 chmod -x app.py
 ls -l app.py
--rw-r--r-- app.py
+```
 
-## Docker 설치 및 기본 점검
+Windows 환경에서는 파일 시스템 설정에 따라 `chmod` 결과가 Linux처럼 명확하게 표시되지 않을 수 있었다.  
+하지만 `chmod +x`, `chmod -x`, `ls -l` 명령어를 사용하여 권한 확인 및 변경 과정을 실습했다.
 
 ### Docker 버전 확인
 
