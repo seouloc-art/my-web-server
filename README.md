@@ -31,11 +31,30 @@ docker volume inspect my-volume
 
 ## Docker 볼륨 영속성 확인
 
-Docker 볼륨을 생성했다.
+Docker 볼륨을 생성하고 컨테이너에 마운트했다.
 
-```bash
+```powershell
+docker volume create my-volume
+docker run -d --name volume-test -v my-volume:/app/data my-web-server
+docker volume inspect my-volume
+docker rm -f volume-test
+docker volume inspect my-volume
 
 ```
+컨테이너를 삭제한 뒤에도 `my-volume` 볼륨이 남아 있는 것을 확인했다.  
+이를 통해 Docker 볼륨은 컨테이너 삭제와 관계없이 데이터를 유지할 수 있음을 확인했다.
+
+## Docker 바인드 마운트 실습
+
+호스트 PC의 현재 프로젝트 폴더를 컨테이너의 `/app` 경로에 연결했다.
+
+```powershell
+docker rm -f bind-test
+docker run -d -p 5000:5000 --name bind-test -v ${PWD}:/app my-web-server
+```
+호스트 PC에서 프로젝트 파일을 수정하면 컨테이너의 `/app` 경로에도 변경 사항이 반영되는 것을 확인했다.  
+이를 통해 바인드 마운트는 로컬 폴더와 컨테이너 폴더를 직접 연결하는 방식임을 확인했다.
+
 ## 미션 완료 체크리스트
 - [x] Flask 웹서버 작성 (app.py)
 - [x] Dockerfile 작성
