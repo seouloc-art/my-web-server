@@ -359,3 +359,32 @@ http://localhost:5000
 
 
 이를 통해 Docker 컨테이너 내부의 Flask 서버가 호스트 PC의 5000번 포트와 정상적으로 연결되었음을 확인했다.
+
+---
+
+## Docker 명령어 상태 확인
+
+개발 환경에서 Git과 Docker가 정상 설치되어 있는지 확인했다.
+
+```powershell
+git --version
+docker --version
+```
+
+실행 결과:
+
+```text
+git version 2.56.0.windows.4
+Docker version 29.9.2, build a82e528
+```
+
+Docker 이미지와 컨테이너 상태를 확인했다.
+
+```powershell
+docker images
+docker ps
+docker ps -a
+docker stats --no-stream
+```
+
+확인 결과, Docker 명령어가 정상적으로 실행되며 개발 환경에서 Docker를 사용할 수 있음을 확인했다.
