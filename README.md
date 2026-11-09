@@ -451,3 +451,44 @@ drwxrwxrwx    1 root     root          4096 Nov  9 07:08 terminal-practice
 ```text
 (origin  https://github.com/seouloc-art/my-web-server.git (fetch)
 origin  https://github.com/seouloc-art/my-web-server.git (push)기)
+
+## Docker 이미지 빌드
+
+`docker build -t my-web-server .` 명령어로 이미지를 생성했다.
+
+```
+[+] Building 8.7s (9/9) FINISHED
+ => [1/4] FROM docker.io/library/python:3.9-slim
+ => [2/4] WORKDIR /app
+ => [3/4] COPY app.py .
+ => [4/4] RUN pip install flask
+ => naming to docker.io/library/my-web-server:latest
+```
+
+### 빌드 단계 설명
+- **1/4 FROM**: 파이썬 3.9 기반 이미지를 가져온다
+- **2/4 WORKDIR**: 컨테이너 내부 작업 폴더를 /app으로 설정한다
+- **3/4 COPY**: app.py 파일을 컨테이너 안으로 복사한다
+- **4/4 RUN**: Flask 라이브러리를 설치한다
+
+## 🔍 바인드 마운트 검증 (docker inspect)
+
+컨테이너가 바인드 마운트로 실행되고 있는지 `docker inspect`로 확인했다.
+
+### 실행 명령어
+```powershell
+docker inspect <컨테이너ID> --format "{{json .Mounts}}"
+```
+
+```json
+[{
+  "Type": "bind",
+  "Source": "C:\\Users\\seouloc8923\\desktop\\my-web-server",
+  "Destination": "/app",
+  "Mode": "",
+  "RW": true,
+  "Propagation": "rprivate"
+}]
+```
+
+
