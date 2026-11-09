@@ -450,7 +450,7 @@ drwxrwxrwx    1 root     root          4096 Nov  9 07:08 terminal-practice
 ### 4. Git 원격 저장소 확인 (#9)
 ```text
 (origin  https://github.com/seouloc-art/my-web-server.git (fetch)
-origin  https://github.com/seouloc-art/my-web-server.git (push)기)
+origin  https://github.com/seouloc-art/my-web-server.git (push))
 
 ## Docker 이미지 빌드
 
