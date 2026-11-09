@@ -422,3 +422,32 @@ docker stats --no-stream
 
 ```powershell
 docker run -v [로컬 폴더 경로]:[컨테이너 폴더 경로] -p 5000:5000 [이미지 이름]
+
+---
+
+## 📚 미션 수행 기록 (추가 항목)
+
+### 1. ls -l 실행 결과 (#2)
+```text
+total 12
+-rwxrwxrwx    1 root     root           121 Nov  9 07:08 Dockerfile
+-rwxrwxrwx    1 root     root         11826 Nov  9 07:08 README.md
+-rwxrwxrwx    1 root     root           204 Nov  9 07:08 app.py
+drwxrwxrwx    1 root     root          4096 Nov  9 07:08 images
+drwxrwxrwx    1 root     root          4096 Nov  9 07:08 terminal-practice
+
+### 2. 폴더 구조 설명 (#10)
+- `app.py`: Flask 웹 서버의 메인 실행 파일입니다.
+- `Dockerfile`: 도커 이미지를 빌드하기 위한 설계도입니다.
+- `README.md`: 프로젝트 설명 및 미션 수행 기록이 담긴 문서입니다.
+
+### 3. 주요 개념 정리
+- **이미지 vs 컨테이너 (#12)**: '이미지'는 실행 가능한 패키지(설계도)이고, '컨테이너'는 그 이미지를 실제로 실행시킨 상태(실체)입니다.
+- **포트 포워딩 (#13)**: 호스트 PC의 포트(예: 5000)와 컨테이너 내부의 포트를 연결하여 외부에서 컨테이너에 접속할 수 있게 해주는 통로입니다.
+- **절대 경로 vs 상대 경로 (#14)**: '절대 경로'는 최상위 루트부터 전체 주소를 다 쓰는 방식(예: C:\Users\...)이고, '상대 경로'는 현재 위치를 기준으로 찾아가는 방식(예: ./app.py)입니다.
+- **권한 숫자 755의 의미 (#15)**: 소유자에게 읽기/쓰기/실행(7), 그룹과 기타 사용자에게는 읽기/실행(5) 권한을 부여한다는 뜻입니다.
+
+### 4. Git 원격 저장소 확인 (#9)
+```text
+(origin  https://github.com/seouloc-art/my-web-server.git (fetch)
+origin  https://github.com/seouloc-art/my-web-server.git (push)기)
