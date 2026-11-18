@@ -524,3 +524,49 @@ netstat -ano | findstr :5000
 - **바인드마운트**: 내 컴퓨터 폴더를 컨테이너에 직접 연결. 파일을 고치면 바로 반영된다.
 - **볼륨**: Docker가 알아서 관리하는 저장 공간. 데이터를 오래 보관할 때 좋다.
 
+
+
+## 🚀 보너스 과제: Docker Compose 및 환경 변수 실습
+
+길고 복잡한 `docker run` 실행 옵션을 코드로 문서화하여 관리하기 위해 `docker-compose.yml`을 작성하고, 환경 변수를 주입하여 컨테이너를 제어했다.
+
+### 1. `docker-compose.yml` 작성 (보너스 #1, #4)
+
+```yaml
+services:
+  web:
+    build: .
+    container_name: compose-web-server
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+```
+
+- **배움 포인트 (문서화된 실행 설정)**: 포트 포워딩(`ports`)과 바인드 마운트(`volumes`) 설정을 파일에 정의해 두면, 명령어 오타를 방지하고 누구나 동일한 환경으로 서버를 실행할 수 있다.
+- **배움 포인트 (설정과 코드의 분리)**: `environment` 항목을 통해 파이썬 코드(`app.py`)를 직접 수정하지 않고도 외부에서 Flask의 디버그 모드(`FLASK_DEBUG=1`)와 실행 환경을 주입할 수 있음을 확인했다.
+
+### 2. Compose 운영 명령어 실습 (보너스 #3)
+
+PowerShell에서 Compose 전용 명령어로 컨테이너의 생명주기와 상태를 관리했다.
+
+```powershell
+# 컨테이너 생성 및 백그라운드 실행
+docker compose up -d
+
+# 실행 중인 서비스 상태 확인
+docker compose ps
+
+# 컨테이너 내부 Flask 서버 로그 확인
+docker compose logs
+
+# 컨테이너 정지 및 네트워크/리소스 일괄 정리
+docker compose down
+```
+
+### 3. 실행 결과 요약
+- `docker compose up -d` 명령어 하나로 이미지 빌드 여부 확인, 네트워크 생성, 볼륨 마운트, 환경 변수 주입까지 한 번에 실행되는 것을 확인했다.
+- `docker compose ps`와 `docker compose logs`를 통해 컨테이너에 직접 접속하지 않고도 정상 구동 여부와 서버 접속 기록을 확인하는 운영 루틴을 익혔다.
